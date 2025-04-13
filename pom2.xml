@@ -1,26 +1,34 @@
-<dependency>
-    <groupId>org.hibernate</groupId>
-    <artifactId>hibernate-core</artifactId>
-    <version>5.x.x</version>
-</dependency>
-
-<!-- Spring ORM dependency for integration -->
-<dependency>
-    <groupId>org.springframework</groupId>
-    <artifactId>spring-orm</artifactId>
-    <version>5.x.x</version>
-</dependency>
-
-<!-- HikariCP for connection pooling -->
-<dependency>
-    <groupId>com.zaxxer</groupId>
-    <artifactId>HikariCP</artifactId>
-    <version>5.x.x</version>
-</dependency>
-
-<!-- Your database driver (example for MySQL) -->
-<dependency>
-    <groupId>mysql</groupId>
-    <artifactId>mysql-connector-java</artifactId>
-    <version>8.x.x</version>
-</dependency>
+<build>
+    <plugins>
+        <!-- Hibernate Tools Maven Plugin -->
+        <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>hibernate3-maven-plugin</artifactId>
+            <version>2.2</version>
+            <executions>
+                <execution>
+                    <id>hbm2java</id>
+                    <phase>generate-sources</phase>
+                    <goals>
+                        <goal>hbm2java</goal>
+                    </goals>
+                </execution>
+            </executions>
+            <configuration>
+                <components>
+                    <component>
+                        <name>hbm2java</name>
+                        <!-- Where the generated entity classes will be placed -->
+                        <outputDirectory>${project.build.directory}/generated-sources/hibernate3</outputDirectory>
+                        <ejb3>true</ejb3>
+                        <jdk5>true</jdk5>
+                        <!-- Reference to the main hibernate configuration file -->
+                        <configurationFile>src/main/resources/hibernate.cfg.xml</configurationFile>
+                        <!-- Reverse engineering strategy file for filtering tables and schema -->
+                        <reverseEngineeringStrategy>src/main/resources/hibernate.reveng.xml</reverseEngineeringStrategy>
+                    </component>
+                </components>
+            </configuration>
+        </plugin>
+    </plugins>
+</build>

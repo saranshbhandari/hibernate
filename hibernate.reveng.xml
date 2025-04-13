@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-reverse-engineering PUBLIC
-        "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN"
-        "http://hibernate.org/dtd/hibernate-reverse-engineering-3.0.dtd">
+<!DOCTYPE hibernate-reverse-engineering SYSTEM "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
 <hibernate-reverse-engineering>
-    <!-- You can define settings here; for example, include all tables -->
-    <schema-selection match-catalog="mydatabase" />
-    
-    <!-- Optionally, you can specify individual table mappings, custom class names, etc. -->
-    <!--
-    <table name="my_table" class="com.example.model.MyTableEntity" />
-    -->
+    <!-- Limit reverse engineering to the 'testschema' schema -->
+    <schema-selection match-schema="testschema"/>
+    <!-- Only process tables with names starting with 'CFE_' -->
+    <table-filter match-name="CFE_%"/>
 </hibernate-reverse-engineering>

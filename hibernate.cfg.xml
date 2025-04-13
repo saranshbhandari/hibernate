@@ -1,16 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE hibernate-configuration PUBLIC 
-          "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
-          "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
-        <!-- JDBC Database connection settings -->
-        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-        <property name="connection.url">jdbc:mysql://localhost:3306/mydatabase</property>
-        <property name="connection.username">yourUsername</property>
-        <property name="connection.password">yourPassword</property>
-        <!-- Dialect -->
-        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
-        <!-- Any additional properties if required -->
+        <property name="hibernate.dialect">org.hibernate.dialect.Oracle12cDialect</property>
+        <property name="hibernate.connection.driver_class">${jdbc.driverClassName}</property>
+        <property name="hibernate.connection.url">${jdbc.url}</property>
+        <property name="hibernate.connection.username">${jdbc.username}</property>
+        <property name="hibernate.connection.password">${jdbc.password}</property>
+        <property name="hibernate.default_schema">testschema</property>
     </session-factory>
 </hibernate-configuration>
