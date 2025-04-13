@@ -1,0 +1,26 @@
+<dependency>
+    <groupId>org.hibernate</groupId>
+    <artifactId>hibernate-core</artifactId>
+    <version>5.x.x</version>
+</dependency>
+
+<!-- Spring ORM dependency for integration -->
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-orm</artifactId>
+    <version>5.x.x</version>
+</dependency>
+
+<!-- HikariCP for connection pooling -->
+<dependency>
+    <groupId>com.zaxxer</groupId>
+    <artifactId>HikariCP</artifactId>
+    <version>5.x.x</version>
+</dependency>
+
+<!-- Your database driver (example for MySQL) -->
+<dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>8.x.x</version>
+</dependency>

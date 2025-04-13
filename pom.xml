@@ -1,0 +1,50 @@
+<build>
+  <plugins>
+    <plugin>
+      <groupId>org.codehaus.mojo</groupId>
+      <artifactId>hibernate3-maven-plugin</artifactId>
+      <version>2.2</version>
+      <executions>
+        <execution>
+          <id>generate-entities</id>
+          <phase>generate-sources</phase>
+          <goals>
+            <goal>hbm2java</goal>
+          </goals>
+        </execution>
+      </executions>
+      <configuration>
+        <!-- Path to your Hibernate configuration file -->
+        <components>
+          <component>
+            <name>hbm2java</name>
+            <outputDirectory>target/generated-sources/hibernate3</outputDirectory>
+            <packagename>com.example.generated</packagename>
+          </component>
+        </components>
+        <componentProperties>
+          <!-- If using JDK5 annotations -->
+          <ejb3>true</ejb3>
+          <jdk5>true</jdk5>
+          <!-- Specify the reverse engineering file -->
+          <revengfile>src/main/resources/hibernate.reveng.xml</revengfile>
+          <!-- Use the configuration file -->
+          <configurationfile>src/main/resources/hibernate.cfg.xml</configurationfile>
+        </componentProperties>
+      </configuration>
+      <dependencies>
+        <!-- Add your database driver and Hibernate dependencies -->
+        <dependency>
+          <groupId>mysql</groupId>
+          <artifactId>mysql-connector-java</artifactId>
+          <version>8.x.x</version>
+        </dependency>
+        <dependency>
+          <groupId>org.hibernate</groupId>
+          <artifactId>hibernate-core</artifactId>
+          <version>5.x.x</version>
+        </dependency>
+      </dependencies>
+    </plugin>
+  </plugins>
+</build>
